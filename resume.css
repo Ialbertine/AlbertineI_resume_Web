@@ -12,6 +12,8 @@ body{
    align-items: center;
    justify-content: center;
    min-height: 100vh;
+   width: 100%;
+   overflow-x: hidden;
    margin: 0;
 }
 main {
@@ -184,7 +186,7 @@ header{
 .info-container{
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns */
-    grid-gap: 10px; 
+    grid-gap: 10px; /* Adjust the gap between grids as needed */
     align-items: center;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -318,8 +320,9 @@ header{
     color: #ff7d00;
     text-align: center;
     position: relative;
-    text-shadow: 6px 6px 3px rgb(19, 38, 111);
+    text-shadow: 2px 2px 3px rgb(19, 38, 111);
     margin-top: 30px;
+    font-size: 30px;
 }
 .skills-subsec{
     display: flex;
@@ -362,7 +365,7 @@ header{
     color: white;
 }
 .skill-content:nth-child(3){
-    background-image: conic-gradient(#8000ff 70%, transparent 0);
+    background-image: conic-gradient(#8000ff 65%, transparent 0);
     color: white;
 }
 .skill-content:nth-child(4){
@@ -373,8 +376,6 @@ header{
     background-image: conic-gradient(#8000ff 50%, transparent 0);
     color: white;
 }
-
-
 .skill-percent{
     font-size: 18px;
     z-index: 1;
@@ -396,7 +397,7 @@ header{
 .container2{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Adjust as needed */
 }
 .grid1,
 .grid2 {
@@ -510,7 +511,7 @@ footer{
     transition: color 0.4s ease
 }
 .fa-brands:hover {
-    color: #03045e; 
+    color: #03045e;  /* Change this to your desired hover color */
 }
 .span-12{
     margin-right: 15px;
@@ -583,115 +584,189 @@ footer{
     font-size: 18px;
     line-height: 1.2;
 }
-@media only screen and (max-width: 768px) {
-    body{
-        width: 100%;
-    }
-    .h-container {
-        margin-left: 0;
-        text-align: center;
-    }
+/********************responsiveness*******************/
 
-    header {
-        margin-left: 0;
+@media only screen and (max-width: 1000px) {
+    body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     .nav-links {
         text-align: center;
-        padding: 10px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
     }
 
     nav ul li {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    header {
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 3rem;
+    }
+
+    header .button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .description {
+        margin-top: 20px;
+    }
+
+    .About-container {
+        margin: 20px 0;
+        padding: 20% 0;
+    }
+
+    .About-container img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
         display: block;
-        margin-bottom: 10px;
-        text-align: center;
+        margin: 0 auto;
+    }
+
+    .h-container {
+        margin-left: 0;
     }
 
     .nav-container p {
         width: 100%;
-        text-align: center;
     }
 
-    .des {
-
-        margin-top: 25px;
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
+    .title {
+        font-size: 40px;
     }
 
-    .button {
-        margin: 0 auto;
-        display: block;
-    }
-
+    /* About Me section styling */
     .grid-container {
-        grid-template-columns: 1fr 1fr; 
-        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .left-side,
+    .right-side {
+        grid-column: 1;
+        text-align: center;
+    }
+
+    /* Education and Certificate section styling */
+    .EanC-container .Education-content {
+        border-left: none;
+        width: 100%;
+    }
+
+    .Whole {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .EanC-container .Education-content {
+        padding: 0px;
+        border-left: none;
+    }
+
+    .EanC-container .Education-content .box {
+        padding: 20px;
         margin-bottom: 20px;
     }
-    .image {
-        max-width: 100%;
-        height: auto;
-        border-radius: 15px;
-        border: none;
-        box-shadow: 6px 6px 4px #34495e;
+
+    /* Service section styling */
+    .div-cards {
+        flex-direction: column;
+        margin-bottom: 30px;
     }
 
-    .info-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        position: relative;
+    .div-cards .card {
+        width: 100%;
+        margin-bottom: 20px;
     }
 
-    .section-left,
-    .section-right {
-        text-align: center;
-        margin: 0;
-    }
-
-    .service-container,
-    .project-container,
-    .contact-section {
-        display: grid;
-        padding: 20px;
-    }
-
-    .div-cards,
-    .skills-subsec,
+    /* Project section styling */
     .port-cont {
         flex-direction: column;
     }
 
-    .div-cards .card {
+    .project:hover {
+        border-color: rgb(19, 38, 111);
+        transform: scale(1.05);
+    }
 
-        width: 100%;
+    .container1,
+    .container2 {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .grid1,
+    .grid2 {
+        flex: 1;
+        padding: 0;
         margin-bottom: 15px;
     }
 
-    .skills-subsec .skill-content {
-        margin-right: 0;
-        margin-bottom: 30px;
+    .project {
+        width: 100%;
+        height: auto;
     }
 
-    .footer-content {
-        margin-left: 0;
-        justify-content: center;
+    /* Contact section styling */
+    .c-container {
+        height: auto;
+    }
+
+    .form-contact {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    /* Skills section styling */
+    .skills-subsec {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
-    .media-icons {
-        font-size: 30px;
-    }
-
-    .footer-content .span-12 {
+    .skill-content {
         margin-right: 0;
     }
+
+    /* Footer section styling */
+    .footer-content {
+        display: flex;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .footer .footer-icon-top {
+        text-align: center;
+    }
+
+    .footer-icon-top a i {
+        padding-top: 5px;
+    }
 }
-
-
-
-
-
 
 
